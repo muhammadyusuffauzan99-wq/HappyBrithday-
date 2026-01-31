@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="bg-music" autoplay loop>
+    <source src="c:\Users\muham\Downloads\music.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+    <!-- 🎉 CONFETTI -->
+    <div class="confetti"></div>
+
+    <!-- ❤️ HEARTS -->
+    <div class="hearts"></div>
+
+    <!-- 🎂 CAKE -->
+    <div class="cake animate-cake">
+        <div class="candle" onclick="blowCandle()">
+            <div class="flame" id="flame"></div>
+        </div>
+        <div class="icing"></div>
+        <div class="layer"></div>
+    </div>
+
+    <!-- 💖 TEXT -->
+    <h1 class="happy animate-text">
+        Selamat ulang tahun, sayangku!
+    </h1>
+
+    <p class="hint">Klik lilin untuk meniup 🎂</p>
+</div>
+
+<script>
+    function blowCandle() {
+        const flame = document.getElementById("flame");
+        flame.style.opacity = "0";
+        flame.style.boxShadow = "none";
+    }
+
+    // Auto play fix (Chrome)
+    document.body.addEventListener('click', () => {
+        document.getElementById("bg-music").play();
+    });
+</script>
+
+</body>
+</html>

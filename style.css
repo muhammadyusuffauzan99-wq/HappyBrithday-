@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ffc3a0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pacifico', cursive;
+    overflow: hidden;
+}
+
+.card {
+    width: 360px;
+    height: 480px;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* 🎂 CAKE */
+.cake {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.layer {
+    width: 160px;
+    height: 70px;
+    background: #8d6e63;
+    border-radius: 0 0 15px 15px;
+}
+
+.icing {
+    position: absolute;
+    top: -15px;
+    width: 160px;
+    height: 30px;
+    background: #fff;
+    border-radius: 15px;
+}
+
+.candle {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 40px;
+    background: #ffcad4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.flame {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 18px;
+    background: orange;
+    border-radius: 50%;
+    animation: flicker 0.15s infinite alternate;
+    box-shadow: 0 0 20px orange;
+}
+
+@keyframes flicker {
+    from { transform: translateX(-50%) scale(1); }
+    to { transform: translateX(-50%) scale(1.15); }
+}
+
+/* ✨ TEXT */
+.happy {
+    font-size: 2.3em;
+    color: #c2185b;
+    text-align: center;
+    text-shadow: 0 0 10px #ff8fab;
+}
+
+.hint {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* 🎬 ANIMATION */
+.animate-cake {
+    animation: cakeIn 1.2s ease-out forwards;
+}
+
+@keyframes cakeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-text {
+    opacity: 0;
+    animation: textIn 1.3s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes textIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🎉 CONFETTI */
+.confetti::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, #ff8fab 2px, transparent 2px),
+        radial-gradient(circle, #ffd166 2px, transparent 2px),
+        radial-gradient(circle, #fff 2px, transparent 2px);
+    background-size: 30px 30px;
+    animation: confetti 6s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes confetti {
+    from { background-position: 0 0; }
+    to { background-position: 0 300px; }
+}
+
+/* ❤️ HEART FLOAT */
+.hearts::before {
+    content: '❤️ 💕 💖 💗 💘';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: hearts 8s linear infinite;
+    font-size: 22px;
+}
+
+@keyframes hearts {
+    from { transform: translate(-50%, 0); opacity: 1; }
+    to { transform: translate(-50%, -500px); opacity: 0; }
+}
